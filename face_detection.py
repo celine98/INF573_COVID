@@ -26,15 +26,17 @@ def face_detection(prediction_, frame, faceCascade):
             cv2.rectangle(frame, (x1, y1), (x2,y2),(255,0,0), 5)
             person_frame = frame[y1:y2, x1:x2] 
             gray = cv2.cvtColor(person_frame, cv2.COLOR_BGR2GRAY)
-            faces_ = faceCascade.detectMultiScale(gray,
+            faces_ = faceCascade.detectMultiScale3(gray,
                                                  scaleFactor=1.05,
-                                                 minNeighbors=5,
+                                                 minNeighbors=10,
                                                  minSize=(60, 60),
-                                                 flags=cv2.CASCADE_SCALE_IMAGE)
+                                                 flags=cv2.CASCADE_SCALE_IMAGE,
+                                                 outputRejectLevels = True)
             faces_transformed = []
-            for (x, y, w, h) in faces_:
+            for (i, (x, y, w, h)) in enumerate(faces_[0]):
                 x = x + x1
                 y = y + y1
+                print("Face detected in person ", index)
                 faces_transformed.append((x,y,w,h))
                 
             if len(faces_transformed)==0:
@@ -43,7 +45,8 @@ def face_detection(prediction_, frame, faceCascade):
                 y = y1
                 h = int((y2-y1)/6)
                 faces_transformed.append((x,y,w,h))
-                
+                print("No face detected in person {}, one face added".format(index) )
+               
             faces[str(index)] = faces_transformed
             
             

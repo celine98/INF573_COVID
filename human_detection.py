@@ -49,9 +49,12 @@ def get_position_from_masks(prediction, focus_len):
         distance = total_height_meter / focus_len
         y =(boxes[index][3] + boxes[index][1])/2 - total_pixel_height/2
         x = (boxes[index][0] + boxes[index][2]) / 2 - total_pixel_width / 2
-        positions.append(torch.tensor([x/pixel_meter_rate, y/pixel_meter_rate, distance]) )
+        current_pos = [x/pixel_meter_rate, y/pixel_meter_rate, distance]
+        positions.append(torch.tensor(current_pos) )
+        print("Person {} detected at position: {}".format(index,current_pos))
+        print("----")
     prediction['positions'] = positions
-    print(positions)
+    
     return prediction
 
 def get_prediction(test_img_path, model, device, focal_len):
@@ -97,9 +100,10 @@ def human_box_detection(prediction_, frame, safe_distance = 1):
         t_y = (p1[1]+p2[1])/2 - 10
         
         if (distance<=safe_distance):
-            cv2.line(frame, p1, p2, (0,0,255), 2)
+            cv2.rectangle(frame, (t_x-20, t_y-50), (t_x + 170, t_y+5), (0,0,0), -1)
+            cv2.line(frame, p1, p2, (0,0,255), 4)
             label = "{:.1f}m".format(distance)
-            cv2.putText(frame, label , (t_x,t_y),cv2.FONT_HERSHEY_SIMPLEX, 1, (0,0,255), 2)
+            cv2.putText(frame, label , (t_x,t_y),cv2.FONT_HERSHEY_SIMPLEX, 2, (0,0,255), 3)
             print("Distance between person {} and person {}: {} || NOT SAFE".format(i,j,distance))
         
         else:

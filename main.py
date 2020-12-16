@@ -55,9 +55,13 @@ def run():
     focal_len = args["focal_len"]
     
     #loading models
+    print("-----------------------------------------------")
+    print("Loading Models")
     device = torch.device('cuda') if torch.cuda.is_available() else torch.device('cpu')
     model, faceCascade, model_masks = load_models(device)
     
+    print("-----------------------------------------------")
+    print("Looking for humans")
     
     frame = cv2.imread(test_img_path)
     
@@ -66,6 +70,9 @@ def run():
     
     #box annotation
     human_box_detection(prediction_, frame, safe_distance)
+    
+    print("-----------------------------------------------")
+    print("Looking for faces and masks")
     
     #faces detection  
     faces = face_detection(prediction_, frame, faceCascade)
