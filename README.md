@@ -9,7 +9,7 @@ For more information please refer to the project report.
 
 # set-up
 
-required packages:
+## required packages:
 
 	Torch
 
@@ -20,27 +20,32 @@ required packages:
 	Cython
 
 	tensorflow
-
-# Running the code
+	
+## Model download
 
 Before running the code, please download the human detection model and place it in the models/ folder: https://drive.google.com/file/d/1OIjWClONRY96-lC96srLaoPZOq8iM9W2/view?usp=sharing
 
 
+# Running the code
 
 cd <project repository>
 
-usage: main.py [-h] -i IMAGE [-sd SAFE_DISTANCE] [-fl FOCAL_LEN] \\
+usage: main.py [-h] -i IMAGE [-sd SAFE_DISTANCE] [-fl FOCAL_LEN]
 
 optional arguments:
-  -h, --help            show this help message and exit
-  -i IMAGE, --image IMAGE
-                        path to test image
-  -sd SAFE_DISTANCE, --safe_distance SAFE_DISTANCE
-                        Desired safe distance in meters (default = 1m)
-  -fl FOCAL_LEN, --focal_len FOCAL_LEN
-                        Focal Length if known (default = 0.965)
+
+	  -h, --help            show this help message and exit
+	  
+	  -i IMAGE, --image IMAGE
+				path to test image
+				
+	  -sd SAFE_DISTANCE, --safe_distance SAFE_DISTANCE
+				Desired safe distance in meters (default = 1m)
+				
+	  -fl FOCAL_LEN, --focal_len FOCAL_LEN
+				Focal Length if known (default = 0.965)
 
 Example : 
 
-python3 main.py -i photos/people.png
+	python3 main.py -i photos/people.png
 
