@@ -28,11 +28,11 @@ Before running the code, please download the human detection model and place it 
 
 # Running the code
 
-cd <project repository>
+Run the following command in the project repository:
 
-usage: main.py [-h] -i IMAGE [-sd SAFE_DISTANCE] [-fl FOCAL_LEN]
+	main.py [-h] -i IMAGE [-sd SAFE_DISTANCE] [-fl FOCAL_LEN]
 
-optional arguments:
+**optional arguments:**
 
 	  -h, --help            show this help message and exit
 	  
@@ -45,7 +45,7 @@ optional arguments:
 	  -fl FOCAL_LEN, --focal_len FOCAL_LEN
 				Focal Length if known (default = 0.965)
 
-Example : 
+**Example:**
 
 	python3 main.py -i photos/people.png
 
