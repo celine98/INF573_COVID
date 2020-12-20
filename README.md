@@ -11,15 +11,15 @@ For more information please refer to the project report.
 
 required packages:
 
-	`Torch`
+	Torch
 
-	`opencv-python` (cv2)
+	opencv-python (cv2)
+	
+	Pillow
 
-	`Pillow`
+	Cython
 
-	`Cython`
-
-	`tensorflow`
+	tensorflow
 
 # Running the code
 
@@ -29,7 +29,7 @@ Before running the code, please download the human detection model and place it 
 
 cd <project repository>
 
-usage: main.py [-h] -i IMAGE [-sd SAFE_DISTANCE] [-fl FOCAL_LEN]
+usage: main.py [-h] -i IMAGE [-sd SAFE_DISTANCE] [-fl FOCAL_LEN] \\
 
 optional arguments:
   -h, --help            show this help message and exit
