@@ -1,6 +1,6 @@
-# INF573 Project
+# Social Distance and Face Mask Detector
 
-In this project, we implement a Covid social distancing detector.
+In this project, we implement a Covid19 social distancing and face mask detector.
 Given an image, we detect all the people in it, estimate the distance between them, and check whether they are wearing masks (using face and mask detectors).
 The model outputs an image annotated with the detected information, and prints out that information in the command prompt. 
 
@@ -48,4 +48,3 @@ Run the following command in the project repository:
 **Example:**
 
 	python3 main.py -i photos/people.png
-
