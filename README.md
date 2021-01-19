@@ -47,4 +47,8 @@ Run the following command in the project repository:
 
 **Example:**
 
-	python3 main.py -i photos/people.png
+	python3 main.py -i photos/2m4.jpg
+	
+**Output (photo+command prompt):**
+![Output example with photo 2m4.jpg](https://github.com/celine98/distance_mask_detector/blob/master/output.jpeg)
+
