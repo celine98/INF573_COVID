@@ -5,7 +5,7 @@ Given an image, we detect all the people in it, estimate the distance between th
 The model outputs an image annotated with the detected information, and prints out that information in the command prompt. 
 
 
-For more information please refer to the PDF report (Hajjar_Pan_SDMD). 
+For more information please refer to the PDF report (**Report.pdf**). 
 
 # set-up
 
